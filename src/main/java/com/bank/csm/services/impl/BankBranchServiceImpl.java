@@ -68,7 +68,13 @@ public class BankBranchServiceImpl implements BankBranchService {
 
 	@Override
 	public BankBranchDTO get(String branchCode) {
+		long startTime = System.currentTimeMillis();
+		System.out.println("Start Time: " + startTime);
 		EndpointMetadata metadata = AppWebUtils.obtainEndPointMetadata();
+		long endTime = System.currentTimeMillis();
+		System.out.println("End   Time: " + endTime);
+		System.out.println("Difference: " + (endTime-startTime));
+		
 		BankBranchDTO retVal = new BankBranchDTO();
 		Optional<String> branchCodeOptional = Optional.of(branchCode);
 		branchCodeOptional.ifPresent(branchCodeString -> {

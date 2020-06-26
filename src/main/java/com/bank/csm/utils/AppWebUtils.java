@@ -301,8 +301,9 @@ public class AppWebUtils {
 	public static EndpointMetadata obtainEndPointMetadata() {
 		EndpointMetadata methodMetadata = null;
 		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		for(StackTraceElement element:stackTraceElements) {
-			methodMetadata = obtainEndPointMetadata(element);
+			methodMetadata = obtainEndPointMetadata(element, classLoader);
 			if(null != methodMetadata) {
 				break;
 			}
@@ -310,11 +311,12 @@ public class AppWebUtils {
 		return methodMetadata;
 	}
 	
-	public static EndpointMetadata obtainEndPointMetadata(StackTraceElement element) {
+	public static EndpointMetadata obtainEndPointMetadata(StackTraceElement element, ClassLoader classLoader) {
 		@SuppressWarnings("rawtypes")
 		Class tempClass = null;
 		try {
-			tempClass = Class.forName(element.getClassName());
+			tempClass = classLoader.loadClass(element.getClassName());
+			//tempClass = Class.forName(element.getClassName());
 		} catch (ClassNotFoundException e) {
 			//Need need to capture this exception
 		}

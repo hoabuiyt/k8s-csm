@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd"
+          updateCheck="false">
+         
+	<defaultCache maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="1000"
+            timeToLiveSeconds="1000"
+            overflowToDisk="false"
+            memoryStoreEvictionPolicy="LRU">
+     </defaultCache>                                                 
+
+	<cache name="entity" maxEntriesLocalHeap="10000"
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+
+	<cache name="local-query" maxEntriesLocalHeap="10000"
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+
+	
+	<cache name="com.hcl.hmtp.common.server.entity.CompanyType" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="com.hcl.hmtp.common.server.entity.User" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="com.hcl.hmtp.common.server.entity.Company" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="com.hcl.hmtp.application.optional.server.entity.Enumeration" maxEntriesLocalHeap="100" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="com.hcl.hmtp.application.optional.server.entity.EnumerationValue" maxEntriesLocalHeap="100" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	
+	<cache name="com.hcl.hmtp.common.server.entity.InitState" maxEntriesLocalHeap="2048" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="com.hcl.hmtp.application.server.entity.SyncTimeTracker" maxEntriesLocalHeap="2048" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	
+	<cache name="com.hcl.hmtp.application.optional.server.entity.DefaultRole" maxEntriesLocalHeap="2048" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	
+	<cache name="com.hcl.hmtp.common.server.entity.SupportedLocale" maxEntriesLocalHeap="10" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="company_fetch_by_domainname_query" maxEntriesLocalHeap="2048" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="user_fetch_by_loginname_query" maxEntriesLocalHeap="2048" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="user_locale_fetch_query" maxEntriesLocalHeap="2048" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="company_type_id_fetch_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="hierarchical_data_inherit_fetch_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+
+	<cache name="hierarchical_data_override_self_fetch_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="hierarchical_data_override_others_fetch_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="hierarchical_data_override_company_type_fetch_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="hierarchical_data_override_all_fetch_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="hierarchical_data_fetch_all_identifiers_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="hierarchical_data_fetch_all_by_author" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="ancestors_hierarchy_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="company_is_in_hierarchy_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+
+	<cache name="company_is_an_ancestor_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="company_is_an_descendant_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	<cache name="descendants_companies_hierarchy_fetch_query" maxEntriesLocalHeap="1024" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	
+	<cache name="company_type_fetch_all_query" maxEntriesLocalHeap="10" 
+		memoryStoreEvictionPolicy="LRU" eternal="true">
+	</cache>
+	
+	
+	
+</ehcache>

@@ -164,7 +164,60 @@
 			      </configuration>
 			    </execution>
 			  </executions>
-			</plugin>    			
+			</plugin>    	
+
+			<!--plugin>
+			  <groupId>com.spotify</groupId>
+			  <artifactId>dockerfile-maven-plugin</artifactId>
+			  <version>0.9.0</version>
+
+			  <dependencies>
+				<dependency>
+					<groupId>com.google.code.gson</groupId>
+					<artifactId>gson</artifactId>
+					<version>2.8.0</version>
+				</dependency>
+			  </dependencies>
+
+			  <executions>
+				<execution>
+				  <id>default</id>
+				  <goals>
+					<goal>build</goal>
+					<goal>push</goal>
+				  </goals>
+				</execution>
+			  </executions>
+			  <configuration>
+				<repository>bank/csm</repository>
+				<tag>${project.version}</tag>
+				<buildArgs>
+				  <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+				</buildArgs>
+			  </configuration>
+			</plugin-->
+
+	<plugin>
+      <groupId>com.spotify</groupId>
+      <artifactId>docker-maven-plugin</artifactId>
+      <version>1.2.2</version>
+      <configuration>
+        <imageName>bank/csm</imageName>
+        <dockerDirectory>docker</dockerDirectory>
+		<imageTags>
+			<imageTag>latest</imageTag>
+		</imageTags>
+		<forceTags>true</forceTags>
+        <resources>
+           <resource>
+             <targetPath>/</targetPath>
+             <directory>${project.build.directory}</directory>
+             <include>${project.build.finalName}.jar</include>
+           </resource>
+        </resources>
+      </configuration>
+    </plugin>
+			
 		</plugins>
 		<pluginManagement>
 			<plugins>

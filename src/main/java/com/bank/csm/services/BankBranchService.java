@@ -63,5 +63,5 @@ public interface BankBranchService {
 	 * @param amount the amount
 	 * @return the boolean
 	 */
-	public Boolean doAdjustment(String branchCode, BigDecimal amount, boolean isPositive) throws CommonAPIException;
+	public BigDecimal doAdjustment(String branchCode, BigDecimal amount, boolean isPositive) throws CommonAPIException;
 }

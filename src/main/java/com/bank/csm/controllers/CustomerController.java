@@ -59,13 +59,13 @@ public class CustomerController {
 	@GetMapping(URLConstants.RESOURCE_CSM_BY_CIF)
 	public ResponseEntity<?> get(@RequestParam String cif) {
 		LOGGER.info("Get - Calling");
-		return AppWebUtils.buildResponse(CommonMessageConstants.SUCCESS_FETCHED, HttpStatus.FOUND, customerService.get(cif));
+		return AppWebUtils.buildResponse(CommonMessageConstants.SUCCESS_FETCHED, HttpStatus.OK, customerService.get(cif));
 	}
 
 	@GetMapping(URLConstants.RESOURCE_CSM_BY_ACCOUNTNO)
 	public ResponseEntity<?> getByAcNo(@RequestParam String accountNo) {
 		LOGGER.info("Get By Account No - Calling");
-		return AppWebUtils.buildResponse(CommonMessageConstants.SUCCESS_FETCHED, HttpStatus.FOUND, customerService.getByAccountNo(accountNo));
+		return AppWebUtils.buildResponse(CommonMessageConstants.SUCCESS_FETCHED, HttpStatus.OK, customerService.getByAccountNo(accountNo));
 	}
 
 	@GetMapping(URLConstants.RESOURCE_CSM_BY_ADJ_ACC)

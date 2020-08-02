@@ -62,7 +62,7 @@ public class Customer implements Serializable {
 	@Column(name = "COUNTRY")
 	private String country;
 	
-	@OneToMany(targetEntity = Account.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "customer", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private Set<Account> accounts;
 
 	public Long getId() {

@@ -39,7 +39,8 @@ public enum Exceptions {
 	E0026(HttpStatus.BAD_REQUEST, "0026", "exception.0026", "Branch is already available"),
 	E0027(HttpStatus.BAD_REQUEST, "0027", "exception.0027", "Bank is already available"),
 	E0028(HttpStatus.BAD_REQUEST, "0028", "exception.0028", "Customer is already available"),
-	E0029(HttpStatus.BAD_REQUEST, "0029", "exception.0029", "Account is already available")
+	E0029(HttpStatus.BAD_REQUEST, "0029", "exception.0029", "Account is already available"),
+	E0030(HttpStatus.BAD_REQUEST, "0030", "exception.0030", "Branch not available")
 	;
 
 	private HttpStatus status;

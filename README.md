@@ -15,6 +15,7 @@ This microservice has been designed to be part of and bank applicaiton demo whic
 - Spotify docker plugin
 - Docker
 - Kubernetes 1.16 or later
+- MySQL 5.7
 
 
 ## Build
@@ -39,5 +40,8 @@ This project also contains Kubernetes declarative configuration (in form of yaml
 ```
 kubectl create -f csm-kb8-deployment.yaml
 ```
+
+## Configuraiton
+The maven project contains resource directory which contains applicaiton.yaml. This configuration file will be used to configure database and other properties.
 
 Disclaimer: This code has been written for testing purpose, the execution and correctness depends on various envrironment parameters. It should not be used for any live usages.

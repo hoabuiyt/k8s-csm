@@ -202,7 +202,7 @@
       <artifactId>docker-maven-plugin</artifactId>
       <version>1.2.2</version>
       <configuration>
-        <imageName>bank/csm</imageName>
+        <imageName>hub.docker.local:5000/bank/csm</imageName>
         <dockerDirectory>docker</dockerDirectory>
 		<imageTags>
 			<imageTag>latest</imageTag>

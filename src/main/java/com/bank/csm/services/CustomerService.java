@@ -71,5 +71,5 @@ public interface CustomerService {
 	 * @param amount the amount
 	 * @return the boolean
 	 */
-	public Boolean doAdjustment(String accountNo, BigDecimal amount, boolean isPositive) throws CommonAPIException;
+	public BigDecimal doAdjustment(String accountNo, BigDecimal amount, boolean isPositive) throws CommonAPIException;
 }

@@ -29,6 +29,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>, JpaSp
 	
 	Optional<Customer> getByCif(String cif);
 	
-	@Query("from Customer c inner join c.accounts a where a.accountNo = ?1")
-	Customer getByAccountNo(String accountNo);
+	@Query("select c from Customer c inner join c.accounts a where a.accountNo = ?1")
+	Optional<Customer> getByAccountNo(String accountNo);
 }

@@ -14,14 +14,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import com.bank.csm.annotations.EndpointMetadata;
 import com.bank.csm.constants.Exceptions;
 import com.bank.csm.dto.BankBranchDTO;
 import com.bank.csm.entities.BankBranch;
 import com.bank.csm.exceptions.CommonAPIException;
 import com.bank.csm.repositories.BankBranchRepository;
 import com.bank.csm.services.BankBranchService;
-import com.bank.csm.utils.AppWebUtils;
 import com.bank.csm.utils.SpecificationUtils;
 
 @Service
@@ -68,13 +66,17 @@ public class BankBranchServiceImpl implements BankBranchService {
 
 	@Override
 	public BankBranchDTO get(String branchCode) {
+		/**
+		 * Commented for testing
+		 */
+		/*
 		long startTime = System.currentTimeMillis();
 		System.out.println("Start Time: " + startTime);
 		EndpointMetadata metadata = AppWebUtils.obtainEndPointMetadata();
 		long endTime = System.currentTimeMillis();
 		System.out.println("End   Time: " + endTime);
 		System.out.println("Difference: " + (endTime-startTime));
-		
+		*/
 		BankBranchDTO retVal = new BankBranchDTO();
 		Optional<String> branchCodeOptional = Optional.of(branchCode);
 		branchCodeOptional.ifPresent(branchCodeString -> {
@@ -99,7 +101,8 @@ public class BankBranchServiceImpl implements BankBranchService {
 	}
 
 	@Override
-	public Boolean doAdjustment(String branchCode, BigDecimal amount, boolean isPositive) throws CommonAPIException {
+	public BigDecimal doAdjustment(String branchCode, BigDecimal amount, boolean isPositive) throws CommonAPIException {
+		List<BigDecimal> retVal = new ArrayList<>();
 		adjustmentValidation(branchCode, amount);
 		Optional<BankBranch> bankBranchOptional = bankBranchRepository.getByCode(branchCode);
 		bankBranchOptional.ifPresent(bankBranch -> {
@@ -113,8 +116,9 @@ public class BankBranchServiceImpl implements BankBranchService {
 			}
 			bankBranch.setBalance(oldAmount);
 			bankBranchRepository.save(bankBranch);
+			retVal.add(oldAmount);
 		});
-		return true;
+		return !retVal.isEmpty()?retVal.get(0):null;
 	}
 	
 	private void adjustmentValidation(String branchCode, BigDecimal amount) throws CommonAPIException {
@@ -133,10 +137,10 @@ public class BankBranchServiceImpl implements BankBranchService {
 		if(null != bankBranchDTO.getId()) {
 			throw new CommonAPIException(Exceptions.E0025);
 		}
-		if(bankBranchRepository.existsByName(bankBranchDTO.getName(), bankBranchDTO.getId()) || bankBranchRepository.existsByName(bankBranchDTO.getCode(), bankBranchDTO.getId())) {
+		if(bankBranchRepository.existsByName(bankBranchDTO.getName(), bankBranchDTO.getId()) || bankBranchRepository.existsByCode(bankBranchDTO.getCode(), bankBranchDTO.getId())) {
 			throw new CommonAPIException(Exceptions.E0026);
 		}
-		if(bankBranchRepository.existsByBankName(bankBranchDTO.getName(), bankBranchDTO.getId()) || bankBranchRepository.existsByBankName(bankBranchDTO.getCode(), bankBranchDTO.getId())) {
+		if(bankBranchRepository.existsByBankName(bankBranchDTO.getName(), bankBranchDTO.getId()) || bankBranchRepository.existsByBankCode(bankBranchDTO.getCode(), bankBranchDTO.getId())) {
 			throw new CommonAPIException(Exceptions.E0027);
 		}
 	}
@@ -148,10 +152,10 @@ public class BankBranchServiceImpl implements BankBranchService {
 		if(null == bankBranchDTO.getId()) {
 			throw new CommonAPIException(Exceptions.E0025);
 		}
-		if(bankBranchRepository.existsByName(bankBranchDTO.getName(), bankBranchDTO.getId()) || bankBranchRepository.existsByName(bankBranchDTO.getCode(), bankBranchDTO.getId())) {
+		if(bankBranchRepository.existsByName(bankBranchDTO.getName(), bankBranchDTO.getId()) || bankBranchRepository.existsByCode(bankBranchDTO.getCode(), bankBranchDTO.getId())) {
 			throw new CommonAPIException(Exceptions.E0026);
 		}
-		if(bankBranchRepository.existsByBankName(bankBranchDTO.getName(), bankBranchDTO.getId()) || bankBranchRepository.existsByBankName(bankBranchDTO.getCode(), bankBranchDTO.getId())) {
+		if(bankBranchRepository.existsByBankName(bankBranchDTO.getName(), bankBranchDTO.getId()) || bankBranchRepository.existsByBankCode(bankBranchDTO.getCode(), bankBranchDTO.getId())) {
 			throw new CommonAPIException(Exceptions.E0027);
 		}
 	}

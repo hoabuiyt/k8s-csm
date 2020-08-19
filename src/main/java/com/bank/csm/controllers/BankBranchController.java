@@ -61,13 +61,13 @@ public class BankBranchController {
 	@EndpointMetadata(moduleName = "BankBranch", action = "GetRecord")
 	public ResponseEntity<?> get(@RequestParam String branchCode) {
 		LOGGER.info("Get - Calling");
-		return AppWebUtils.buildResponse(CommonMessageConstants.SUCCESS_FETCHED, HttpStatus.FOUND, bankBranchService.get(branchCode));
+		return AppWebUtils.buildResponse(CommonMessageConstants.SUCCESS_FETCHED, HttpStatus.OK, bankBranchService.get(branchCode));
 	}
 
 	@GetMapping(URLConstants.RESOURCE_BANK_DO_ADJUSTMENT)
 	public ResponseEntity<?> getByAcNo(@RequestParam String branchCode, @RequestParam BigDecimal amount, @RequestParam boolean isPositive) throws CommonAPIException {
 		LOGGER.info("Get By Account No - Calling");
-		return AppWebUtils.buildResponse(CommonMessageConstants.SUCCESS_FETCHED, HttpStatus.FOUND, bankBranchService.doAdjustment(branchCode, amount, isPositive));
+		return AppWebUtils.buildResponse(CommonMessageConstants.SUCCESS_FETCHED, HttpStatus.OK, bankBranchService.doAdjustment(branchCode, amount, isPositive));
 	}
 
 }

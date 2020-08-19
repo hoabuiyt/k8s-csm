@@ -1,0 +1,8 @@
+FROM openjdk:8-jre-alpine
+LABEL maintainer="Sandeep Kumar"
+WORKDIR /
+ARG VER=0.1
+ENV VER ${VER}
+ADD target/csm-$VER.jar /opt/lib/csm.jar
+EXPOSE 81
+ENTRYPOINT ["java","-Xmx512m","-Xss16m","-jar", "-Dconsole.level=INFO", "-Dspring.profiles.active=docker", "/opt/lib/csm.jar"]

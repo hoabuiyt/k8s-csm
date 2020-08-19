@@ -31,8 +31,6 @@ public class AccountDTO implements Serializable {
 	
 	private BigDecimal balance;
 
-	private CustomerDTO customer;
-
 	public Long getId() {
 		return id;
 	}
@@ -71,14 +69,6 @@ public class AccountDTO implements Serializable {
 
 	public void setBalance(BigDecimal balance) {
 		this.balance = balance;
-	}
-
-	public CustomerDTO getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(CustomerDTO customer) {
-		this.customer = customer;
 	}
 
 	public String getBranchCode() {

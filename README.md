@@ -5,6 +5,9 @@ This spring based java project has been written to create a microservice which w
 
 It also contains the enquiry endponts for each entity and fund loading end points. The balace associated with accounts can also be obtain from the end point provided by this microservice.
 
+To read full article visit URL: https://medium.com/@siddhivinayak.sk/kubernetes-and-replicated-statefulset-with-real-world-application-9bf21fca9eb
+
+
 ## Use Case
 This microservice is part of Kubernetes Replicated StatefulSet Solution and it depicts typical core banking scenario where a microservice is created to store the client specific static data. This microservice only contains static data and it's endpoints will be utilzed by another microservice which is designed to perform the transactions.
 

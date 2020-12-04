@@ -11,6 +11,8 @@ To read full article visit URL: https://medium.com/@siddhivinayak.sk/kubernetes-
 ## Use Case
 This microservice is part of Kubernetes Replicated StatefulSet Solution and it depicts typical core banking scenario where a microservice is created to store the client specific static data. This microservice only contains static data and it's endpoints will be utilzed by another microservice which is designed to perform the transactions.
 
+Link to Kubernetes Replicated StatefulSet Solution: https://github.com/siddhivinayak-sk/kb-statefulset-sample-artifacts
+
 ## Technology Stack
 - Java 8 or later
 - Spring boot 2.x

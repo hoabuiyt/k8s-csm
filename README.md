@@ -1,4 +1,4 @@
-# Sample Spring Boot Project for Kubernetes Replicated StatefulSet Solution - Customer Service Management (CSM) Microservice
+# Sample Spring Boot Project for Kubernetes Replicated StatefulSet Solution - Customer Service Management (K8S-CSM) Microservice
 
 ## Description
 This spring based java project has been written to create a microservice which will expose the endpoints to manage the static data of customer, account, bank and branch. It has all needed CRUD operation endpoints alog with funcation based enpoints.
